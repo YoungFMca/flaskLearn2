@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<form method="post">
+    {{form.csrf_token}}
+    {{form.username.label}}<br>
+    {{form.username()}}<br>
+    {% for message in form.username.errors %}
+        <small class="error">{{message}}</small><br>
+    {% endfor %}
+    {{form.password.label}}<br>
+    {{form.password}}<br>
+    {% for message in form.password.errors %}
+        <small class="error">{{message}}</small><br>
+    {% endfor %}
+    {{form.remember}}
+    {{form.remember.label}}<br>
+    {{form.submit}}<br>
+</form>
