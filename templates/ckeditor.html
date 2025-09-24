@@ -2,17 +2,18 @@
 {% from 'macros.html' import form_field %}
 
 {% block content %}
-    <h1>Integrate CKEditor with Flask-CKEditor</h1>
+    <h2>Integrate <a href="https://ckeditor.com">CKEditor</a> with <a href="https://github.com/greyli/flask-ckeditor">Flask-CKEditor</a>
+    </h2>
     <form method="post">
         {{ form.csrf_token }}
-        {{ form_field(form.title) }}
-        {{ form_field(form.body) }}
+        {{form.title.label}}{{form.title}}
+        {{form.body.label}}{{form.body}}
         {{ form.submit }}
     </form>
-    <!--  -->
 {% endblock %}
 
 {% block scripts %}
     {{ super() }}
     {{ ckeditor.load() }}
+    {{ ckeditor.config(name='body') }}
 {% endblock %}

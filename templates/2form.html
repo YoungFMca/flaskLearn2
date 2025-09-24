@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from 'macros.html' import form_field %}
+{% block title %} two_form_button {% endblock %}
+
+{% block content %}
+<form method="post">
+    {{signin_form.csrf_token}}
+    {{form_field(signin_form.username)}}
+    {{form_field(signin_form.password)}}
+    {{form_field(signin_form.remember)}}
+    {{signin_form.submit1}}
+</form>
+
+<form method="post">
+    {{register_form.csrf_token}}
+    {{form_field(register_form.username)}}
+    {{form_field(register_form.password)}}
+    {{form_field(register_form.email)}}
+    {{register_form.submit2}}
+</form>
+{% endblock %}
